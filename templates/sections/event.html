@@ -47,7 +47,13 @@
                 {% for nontechnical_events in nontechnical %}
                 <a href="{{ nontechnical_events.get_absolute_url }}"><div class="events__cards--card">
                     <div class="events__cards--card-title">{{ nontechnical_events.title }}</div>
-                    <div class="events__cards--card-status">{{ nontechnical_events.event_status }}</div>
+                    <div class="events__cards--card-status">
+                        {% if technical_events.event_status == 'Ongoing' %}
+                            <div class="status-green"></div>
+                            {% else %}
+                            <div class="status-red"></div>
+                        {% endif %}
+                        {{ nontechnical_events.event_status }}</div>
                     <div class="events__cards--card-title-discription">
                         {{ nontechnical_events.preview }}
                     </div>

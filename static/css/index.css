@@ -282,7 +282,7 @@
 
 
 .status-green {
-    background-color: green;
+    background-color: #93dbaa;
     height: 1.3rem;
     width: 1.3rem;
     border-radius: 50%; 
@@ -290,7 +290,7 @@
 }
 
 .status-red {
-    background-color: green;
+    background-color: #ff726f;
     height: 1.3rem;
     width: 1.3rem;
     border-radius: 50%; 

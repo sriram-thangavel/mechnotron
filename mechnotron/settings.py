@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 from django.contrib.messages import constants as messages
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
 MESSAGE_TAGS = {
         messages.DEBUG: 'alert-secondary',
         messages.INFO: 'alert-info',
@@ -29,8 +33,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-#4e&ahv$w1zedq0-ei&e6g_-7xlo_^b4k-xd6ik%d6*sh0z4qn'
 
+
+SECRET_KEY = "lsjflksjf34534534534589345u834u5"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -98,11 +103,11 @@ WSGI_APPLICATION = 'mechnotron.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mechnotron', 
-        'USER': 'postgres', 
-        'PASSWORD': '9787565407Ss#',
-        'HOST': '127.0.0.1', 
-        'PORT': '5432',
+        'NAME': "mechnotron", 
+        'USER': "postgres", 
+        'PASSWORD': "9787565407Ss#",
+        'HOST': "127.0.0.1", 
+        'PORT': "5432",
     }
 }
 
