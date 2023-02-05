@@ -1,0 +1,94 @@
+
+
+    <!-- FAQ -->
+    <section class="FAQ section-margin" id="faq">
+        <div class="FAQ__FAQ">
+            <div class="FAQ__FAQ--title section-title">FAQ</div>
+
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                       <strong>What is a technical symposium ?</strong> 
+                    </button>
+                  </h2>
+                  <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        A technical symposium is an event that focuses on the exchange of technical information and knowledge through discussions, presentations, and workshops. It provides an opportunity for professionals and students to share their ideas and work in a particular field of technology.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <strong>Who can participate in MECHNOTRON ?</strong>
+                    </button>
+                  </h2>
+                  <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Technical symposiums are open to students, professionals, and experts from various fields of technology. Participants may include engineers, scientists, researchers, and educators.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        <strong>What are the topics covered in MECHNOTRON ? </strong>
+                    </button>
+                  </h2>
+                  <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Topics covered in a technical symposium vary depending on the theme of the event. It could range from emerging technologies, innovative ideas, current research in various fields, to practical applications in industries.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFour">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                    <strong>Is there a registration fee ?</strong>
+                      </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        Yes, there may be a registration fee for attending the symposium, which typically covers the entry fee for various technical events. The fee can vary based on the size and scope of the symposium.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFive">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                    <strong>Is there a dress code for the symposium ?</strong>
+                      </button>
+                    </h2>
+                    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                      <div class="accordion-body">
+                        Usually, there is no formal dress code for a technical symposium. Participants are typically advised to dress in business casual or professional attire.
+                      </div>
+                    </div>
+                  </div>
+              </div>
+
+        </div>
+        <div class="FAQ__contact" id="contact">
+            <div class="FAQ__contact--title section-title"><p>Have Queries?<br>contact Us</div>
+              {% if messages %}
+              {% for message in messages %}
+              <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
+                  {{ message }}
+              </div>
+            {% endfor %}
+            {% endif %}
+            <div class="FAQ__contact-form">
+              <form  method="POST" action="#faq">
+                {% csrf_token %}
+                {% for field in form %}
+                  <div class="mb-3">
+                      <label for="exampleFormControlInput1" class="form-label">{{ field.label }}</label>
+                      {{ field }}
+                    </div>
+                    {% endfor %}
+                    <button class="FAQ__contact-from--button primary-btn active-btn">Submit</button>
+                </form> 
+        </div>
+    </section>
+    <!-- FAQ end -->

@@ -1,0 +1,72 @@
+{% if technical or nontechnical %}
+    <!-- Event section -->
+    <section class="events section-margin" id="events">
+        <div class="events__title section-title">Events</div>
+        {% if technical %}
+        <div class="events__technical">
+
+            <div class="events__technical--title">Technical</div>
+            <div class="events__cards">
+            {% for technical_events in technical %}
+            <a href="{{ technical_events.get_absolute_url }}"><div class="events__cards--card">
+                    <div class="events__cards--card-title">{{ technical_events.title }}</div>
+                    <div class="events__cards--card-status">
+                        {% if technical_events.event_status == 'Ongoing' %}
+                            <div class="status-green"></div>
+                            {% else %}
+                            <div class="status-red"></div>
+                        {% endif %}
+                        {{ technical_events.event_status }}</div>
+                    <div class="events__cards--card-title-discription">
+                        {{ technical_events.preview }}
+                    </div>
+                    <div class="events__cards--card-title-dates">
+                        <div class="events__cards--card-title-dates-start-date">
+                            <p>Start Date:<br><span>{{ technical_events.start_date|date:"d.m.Y " }}</span>
+                        </div>
+                        <div class="events__cards--card-title-dates-end-date">
+                            <p>End Date:<br><span>{{ technical_events.end_date|date:"d.m.Y " }}</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+
+        {% if technicalcount %}
+        <div class="events__technical--more-text"><a href="{% url 'technical_list' %}" class="link">More</a></div>
+        {% endif %}
+
+        {% endif %}
+      
+        {% if nontechnical %}
+        <div class="events__non-technical">
+            <div class="events__non-technical--title">Non-Technical</div>
+            <div class="events__cards">
+
+                {% for nontechnical_events in nontechnical %}
+                <a href="{{ nontechnical_events.get_absolute_url }}"><div class="events__cards--card">
+                    <div class="events__cards--card-title">{{ nontechnical_events.title }}</div>
+                    <div class="events__cards--card-status">{{ nontechnical_events.event_status }}</div>
+                    <div class="events__cards--card-title-discription">
+                        {{ nontechnical_events.preview }}
+                    </div>
+                    <div class="events__cards--card-title-dates">
+                        <div class="events__cards--card-title-dates-start-date">
+                            <p>Start Date:<br><span>{{ nontechnical_events.start_date|date:"d.m.Y " }}</span>
+                        </div>
+                        <div class="events__cards--card-title-dates-end-date">
+                            <p>End Date:<br><span>{{ nontechnical_events.end_date|date:"d.m.Y " }}</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+        {% if nontechnicalcount %}
+        <div class="events__non-technical--more-text"><a href="{% url 'nontechnical_list' %}" class="link">More</a></div>
+        {% endif %}
+        {% endif %}
+    </section>
+    {% endif %}
+    <!-- Event section end -->

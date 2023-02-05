@@ -1,0 +1,25 @@
+  
+  {% if workshops %} 
+  <!-- Workshop section  -->
+  <section class="workshop section-margin" id="workshops">
+    <div class="workshop__title section-title">workshops</div>
+    <div class="workshop__cards">
+    {% for workshop in workshops %}
+    <a href="{{ workshop.get_absolute_url }}">
+       <div class="workshop__cards--card">
+        {% if workshop.preview_image %}
+            <img src="{{ workshop.preview_image.url }}" alt="" class="responsive-img">
+            {% endif %}
+            <div class="workshop__cards--card-discription">
+                <div class="workshop__cards--card-discription-title">
+                  {{ workshop.title }}
+            </div>
+            {{ workshop.preview|safe }}
+        </div>  
+        </div>
+      </a>
+        {% endfor %}
+    </div>    
+</section>
+<!-- Workshop section end -->
+{% endif %}

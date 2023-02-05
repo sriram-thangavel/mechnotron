@@ -1,0 +1,23 @@
+{% extends 'pages/base.html' %}
+
+
+{% block title %} 
+{{ detail.title }}
+{% endblock %}
+
+{% block main %}
+{% include 'components/subnav.html' %}
+
+<div class="event-detail">
+    {% if detail.banner_image %}
+    <div class="banner">
+        <img src="{{ detail.banner_image.url }}" alt="banner" >
+    </div>
+    {% endif %}
+    <div class="event-details section-margin">
+        {{ detail.description|safe }}
+    </div>
+</div>
+
+{% include 'sections/footer.html' %}
+{% endblock %}

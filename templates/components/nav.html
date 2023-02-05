@@ -1,0 +1,26 @@
+{% load static %}
+    <nav class="navbar">
+        <div class="navbar-wrapper section-margin">
+            <img src="{% static 'images/mea.png' %}" alt="MEA" class="navbar__logo">
+            <div class="navbar__menu  hidden">
+                <div class="navbar__menu--items">
+                    <div class="navbar__menu--item"><a href="#about">About</a></div>  
+                    {% if technical or nontechical %} 
+                    <div class="navbar__menu--item"><a href="#events">Events</a></div>
+                    {% endif %}
+                    {% if workshops %}
+                    <div class="navbar__menu--item"><a href="#workshops">Workshops</a></div>
+                    {% endif %}
+                    {% if webinars %}
+                    <div class="navbar__menu--item"><a href="#webinars">Webinars</a></div>
+                    {% endif %}
+                    <div class="navbar__menu--item"><a href="#faq">FAQ</a></div>
+                    <div class="navbar__menu--item"><a href="#contact">Contact</a></div>
+                </div>
+            </div>
+            <div class="navbar-icons">
+                <i class="bi bi-list"></i>
+                <i class="bi bi-x-lg hide"></i>
+            </div>
+        </div>
+    </nav>

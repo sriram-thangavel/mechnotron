@@ -1,0 +1,76 @@
+{% extends 'pages/base.html' %}
+
+
+{% block title %} 
+Non-Technical
+{% endblock %}
+
+{% block main %}
+{% include 'components/subnav.html' %}
+
+<section class="events section-margin">
+    <div class="events__title section-title tracking-in-expand-fwd">Events</div>
+    <div class="events__technical">
+        <div class="events__technical--title">Non-Technical</div>
+        <div class="search">
+            <form action="{% url 'search' %}" method="get">
+                <input
+                  type="search"
+                  name="q"
+                  placeholder="Search and Press enter"
+                  class="form-control"
+                />
+              </form>
+        </div>
+      
+
+        <div class="events__cards">
+            
+            {% for nontechnical_events in nontechnical %}
+            <a href="{{ nontechnical_events.get_absolute_url }}"><div class="events__cards--card">
+                <div class="events__cards--card-title">{{ nontechnical_events.title }}</div>
+                <div class="events__cards--card-status">{{ nontechnical_events.event_status }}</div>
+                <div class="events__cards--card-title-discription">
+                    {{ nontechnical_events.preview }}
+                </div>
+                <div class="events__cards--card-title-dates">
+                    <div class="events__cards--card-title-dates-start-date">
+                        <p>Start Date:<br><span>{{ nontechnical_events.start_date|date:"d.m.Y " }}</span>
+                    </div>
+                    <div class="events__cards--card-title-dates-end-date">
+                        <p>End Date:<br><span>{{ nontechnical_events.end_date|date:"d.m.Y " }}</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+                
+                
+
+    </div>
+
+    
+    {% if is_paginated %}
+    <ul class="pagination">
+      {% if page_obj.has_previous %}
+        <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+      {% else %}
+        <li class="disabled"><span>&laquo;</span></li>
+      {% endif %}
+      {% for i in paginator.page_range %}
+        {% if page_obj.number == i %}
+          <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+        {% else %}
+          <li><a href="?page={{ i }}">{{ i }}</a></li>
+        {% endif %}
+      {% endfor %}
+      {% if page_obj.has_next %}
+        <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+      {% else %}
+        <li class="disabled"><span>&raquo;</span></li>
+      {% endif %}
+    </ul>
+    {% endif %}
+</section>
+{% include 'sections/footer.html' %}
+{% endblock %}
