@@ -105,7 +105,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': "mechnotron", 
         'USER': "postgres", 
-        'PASSWORD': "9787565407Ss#",
+        'PASSWORD': "",
         'HOST': "127.0.0.1", 
         'PORT': "5432",
     }
